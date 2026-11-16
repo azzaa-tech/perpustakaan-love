@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Warna sesuai palet: tinggal pakai bg-ocean, text-peach, border-sky, dst. */
+@theme {
+  --color-peach: #F4BAA3;  /* aksen / tombol hapus */
+  --color-cream: #F4F0E2;  /* background halaman */
+  --color-sky: #A6C8E2;    /* aksen lembut / header tabel */
+  --color-ocean: #619DC6;  /* warna utama / navbar / tombol */
+}
+
+/* Class buatan sendiri supaya kode di halaman lebih pendek */
+@layer components {
+  .card   { @apply bg-white rounded-xl shadow-md p-5 border border-sky/50; }
+  .input  { @apply w-full border border-sky rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-ocean; }
+  .label  { @apply block text-sm font-medium mb-1; }
+  .btn    { @apply px-4 py-2 rounded-lg font-medium bg-ocean text-white hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed; }
+  .btn-peach { @apply px-4 py-2 rounded-lg font-medium bg-peach text-slate-800 hover:opacity-90; }
+  .btn-sm { @apply px-3 py-1 text-sm; }
+  .judul  { @apply text-2xl font-bold mb-4 text-slate-800; }
+  .tabel  { @apply w-full text-sm text-left; }
+  .tabel th { @apply bg-sky px-3 py-2 font-semibold; }
+  .tabel td { @apply px-3 py-2 border-b border-cream; }
+}
