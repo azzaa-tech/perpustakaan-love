@@ -21,10 +21,12 @@ export default function Navbar() {
     router.push("/login");
   }
 
+  // Menu default saat belum login: hanya Daftar dan Login
   let menu = [
-    { nama: "Beranda", href: "/" },
+    { nama: "Daftar", href: "/register" }, // Sesuaikan jika route-nya "/daftar"
     { nama: "Login", href: "/login" },
   ];
+
   if (user?.role === "siswa") {
     menu = [
       { nama: "Dashboard", href: "/dashboard" },
@@ -46,7 +48,7 @@ export default function Navbar() {
       <nav className="max-w-5xl mx-auto bg-[#FFDDDD]/90 backdrop-blur-md border border-[#F66A8A]/25 shadow-lg shadow-[#F66A8A]/10 rounded-full px-6 py-3">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <Link
-            href="/"
+            href={user ? (user.role === "admin" ? "/admin" : "/dashboard") : "/"}
             className="font-extrabold text-lg text-[#C5465C] flex items-center gap-2 tracking-tight hover:opacity-85 transition"
           >
             <span>❤︎ Our</span>
